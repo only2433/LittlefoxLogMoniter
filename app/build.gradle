@@ -2,18 +2,18 @@ apply plugin: 'com.android.library'
 
 ext {
     bintrayRepo = 'LittlefoxLibrary'  // this is the same as whatever you called your repository in Bintray
-    bintrayName = 'logmonitor' // your bintray package name. I am calling it the same as my library name.
+    bintrayName = 'littlefox-log-monitor' // your bintray package name. I am calling it the same as my library name.
 
     publishedGroupId = 'com.littlefox.logmonitor'
-    libraryName = 'logmonitor'
-    artifact = 'logmonitor' // I'm calling it the same as my library name
+    libraryName = 'littlefox-log-monitor'
+    artifact = 'littlefox-log-monitor' // I'm calling it the same as my library name
 
     libraryDescription = 'it is Log Monitor of Littlefox Project.'
 
-    siteUrl = 'https://github.com/only2433/logmonitor'
-    gitUrl = 'https://github.com/only2433/logmonitor.git'
+    siteUrl = 'https://github.com/only2433/LittlefoxLogMoniter'
+    gitUrl = 'https://github.com/only2433/LittlefoxLogMoniter.git'
 
-    libraryVersion = '1.0.1'
+    libraryVersion = '1.0.0'
 
     developerId = 'only2433' // Maven plugin uses this. I don't know if it needs to be anything special.
     developerName = 'Jung JaeHyun'
