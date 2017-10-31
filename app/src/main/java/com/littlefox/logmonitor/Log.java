@@ -176,7 +176,6 @@ public final class Log {
     
 
     public static int f(String msg) {
-
 		String log = convertErrMsg("<I>" + msg);
 		setFileLog(log);
 		return android.util.Log.i(none_tag, log);
