@@ -3,6 +3,8 @@ package com.littlefox.logmonitor;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
+import android.os.Build;
+import android.os.Process;
 
 import com.littlefox.logmonitor.Log.LOG_TYPE;
 
@@ -24,12 +26,23 @@ public class ExceptionCheckHandler implements UncaughtExceptionHandler
 		ex.printStackTrace(new PrintWriter(sw));
 		Log.f(sw.toString(), LOG_TYPE.ERROR, true);
 
+		final Runtime runtime = Runtime.getRuntime();
+		final long usedMemInMB=(runtime.totalMemory() - runtime.freeMemory()) / 1048576L;
+		final long maxHeapSizeInMB=runtime.maxMemory() / 1048576L;
+		final long availHeapSizeInMB = maxHeapSizeInMB - usedMemInMB;
+
+		Log.f("usedMemInMB : "+usedMemInMB+", maxHeapSizeInMB : "+maxHeapSizeInMB+", availHeapSizeInMB : "+availHeapSizeInMB, LOG_TYPE.ERROR, true);
+
 		ActivityManager am  = (ActivityManager)mContext.getSystemService(Context.ACTIVITY_SERVICE);
-		am.killBackgroundProcesses(mContext.getPackageName());
-		
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.FROYO)
+		{
+			am.killBackgroundProcesses(mContext.getPackageName());
+		}
+
+
 		((Activity) mContext).moveTaskToBack(true); 
 		((Activity) mContext).finish(); 
-		android.os.Process.killProcess(android.os.Process.myPid());
+		Process.killProcess(Process.myPid());
 	}
 
 }
