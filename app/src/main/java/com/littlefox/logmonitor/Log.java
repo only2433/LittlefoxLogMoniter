@@ -1,6 +1,7 @@
 package com.littlefox.logmonitor;
 
-import com.littlefox.logmonitor.common.Const;
+
+import com.littlefox.logmonitor.common.Common;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -34,11 +35,11 @@ public final class Log {
     
     private static void init(String fileName, boolean deleteFile)
     {
-    	Const.LOG_FILE = Const.PATH_ROOT + fileName;
+		Common.LOG_FILE = Common.PATH_ROOT + fileName;
     	
     	if(deleteFile)
     	{
-    		File rootFolder = new File(Const.PATH_ROOT);
+    		File rootFolder = new File(Common.PATH_ROOT);
         	File[] files = rootFolder.listFiles();
         	
         	for(File childFile : files)
@@ -64,13 +65,13 @@ public final class Log {
 
     public static long getLogfileSize()
     {
-    	File file = new File(Const.LOG_FILE);
+    	File file = new File(Common.LOG_FILE);
     	return file.length();
     }
     
     public static String getLogfilePath()
     {
-    	return Const.LOG_FILE;
+    	return Common.LOG_FILE;
     }
     
 
@@ -256,9 +257,9 @@ public final class Log {
 	private static void setFileLog(String msg) {
 		try {
 			PrintWriter pw = null;
-			File f = new File(Const.PATH_ROOT);
+			File f = new File(Common.PATH_ROOT);
 			if (!f.exists()) f.mkdirs();
-			f = new File(Const.LOG_FILE);
+			f = new File(Common.LOG_FILE);
 			try {
 				if (!f.exists()) f.createNewFile();
 				pw = new PrintWriter(new FileWriter(f, true), true);
@@ -365,7 +366,7 @@ public final class Log {
     	String rtn = val;
     	try {
     		StackTraceElement[] a = new Throwable().getStackTrace();
-    		if (Const.isLogcat) {
+    		if (Common.isLogcat) {
     			rtn += "\n\tat " + a[2].toString();
     		}
     		else {
