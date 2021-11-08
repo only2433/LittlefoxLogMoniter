@@ -262,13 +262,11 @@ public final class Log {
 		try {
 			PrintWriter pw = null;
 			File f = new File(Common.PATH_ROOT);
-			Log.i("LogMonitor","FOLDER PATH : "+ Common.PATH_ROOT+" folder exist : "+ f.exists());
 			if (!f.exists())
 			{
 				f.mkdirs();
 			}
 			f = new File(Common.LOG_FILE);
-			Log.i("LogMonitor","FILE PATH : "+ Common.LOG_FILE+" file exist : "+ f.exists());
 			try {
 				if (!f.exists())
 				{
