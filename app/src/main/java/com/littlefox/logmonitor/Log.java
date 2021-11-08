@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Environment;
 
 import com.littlefox.logmonitor.common.Common;
+import com.littlefox.logmonitor.enumItem.MonitorMode;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -26,20 +27,30 @@ public final class Log {
     private Log() {
     }
     
-    public static void init(Context context, String fileName)
+    public static void init(Context context, String fileName, MonitorMode mode)
     {
-    	init(context, fileName, false);
+    	init(context, fileName, false,mode);
     }
     
-    public static void initWithDeleteFile(Context context,String fileName)
+    public static void initWithDeleteFile(Context context,String fileName, MonitorMode mode)
     {
-    	init(context, fileName, true);
+    	init(context, fileName, true, mode);
     }
     
-    private static void init(Context context,  String fileName, boolean deleteFile)
+    private static void init(Context context,  String fileName, boolean deleteFile, MonitorMode mode)
     {
-    	Common.PATH_ROOT = context.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath()+"/Log";
-		Common.LOG_FILE = context.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS) + File.separator + fileName;
+    	switch (mode)
+		{
+			case RELEASE_MODE:
+				Common.PATH_ROOT = context.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath()+"/Log";
+				Common.LOG_FILE = Common.PATH_ROOT  + File.separator + fileName;
+				break;
+			case DEBUG_MODE:
+				Common.PATH_ROOT = Environment.getExternalStorageDirectory().getAbsolutePath()+"/LittleFox/Log";
+				Common.LOG_FILE = Common.PATH_ROOT + File.separator + fileName;
+				break;
+		}
+
     	
     	if(deleteFile)
     	{
