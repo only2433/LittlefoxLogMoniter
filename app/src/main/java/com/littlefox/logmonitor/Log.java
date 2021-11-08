@@ -43,15 +43,13 @@ public final class Log {
 		{
 			case RELEASE_MODE:
 				Common.PATH_ROOT = context.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath()+"/Log";
-				Common.LOG_FILE = Common.PATH_ROOT  + File.separator + fileName;
 				break;
 			case DEBUG_MODE:
 				Common.PATH_ROOT = Environment.getExternalStorageDirectory().getAbsolutePath()+"/LittleFox/Log";
-				Common.LOG_FILE = Common.PATH_ROOT + File.separator + fileName;
 				break;
 		}
+		Common.LOG_FILE = Common.PATH_ROOT + File.separator + fileName;
 
-    	
     	if(deleteFile)
     	{
     		File rootFolder = new File(Common.PATH_ROOT);
