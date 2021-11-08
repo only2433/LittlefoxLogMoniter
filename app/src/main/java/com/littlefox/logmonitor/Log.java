@@ -2,7 +2,6 @@ package com.littlefox.logmonitor;
 
 
 import android.content.Context;
-import android.os.Environment;
 
 import com.littlefox.logmonitor.common.Common;
 
@@ -38,7 +37,7 @@ public final class Log {
     
     private static void init(Context context,  String fileName, boolean deleteFile)
     {
-		Common.LOG_FILE = context.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS) + File.separator + fileName;
+		Common.LOG_FILE = Common.PATH_SDCARD + File.separator + fileName;
     	
     	if(deleteFile)
     	{
