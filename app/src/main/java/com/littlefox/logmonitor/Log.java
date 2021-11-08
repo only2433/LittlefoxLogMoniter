@@ -1,6 +1,9 @@
 package com.littlefox.logmonitor;
 
 
+import android.content.Context;
+import android.os.Environment;
+
 import com.littlefox.logmonitor.common.Common;
 
 import java.io.File;
@@ -23,19 +26,19 @@ public final class Log {
     private Log() {
     }
     
-    public static void init(String fileName)
+    public static void init(Context context, String fileName)
     {
-    	init(fileName, false);
+    	init(context, fileName, false);
     }
     
-    public static void initWithDeleteFile(String fileName)
+    public static void initWithDeleteFile(Context context,String fileName)
     {
-    	init(fileName, true);
+    	init(context, fileName, true);
     }
     
-    private static void init(String fileName, boolean deleteFile)
+    private static void init(Context context,  String fileName, boolean deleteFile)
     {
-		Common.LOG_FILE = Common.PATH_ROOT + fileName;
+		Common.LOG_FILE = context.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS) + "/LittleFox/Log/" + fileName;
     	
     	if(deleteFile)
     	{
