@@ -38,7 +38,7 @@ public final class Log {
     
     private static void init(Context context,  String fileName, boolean deleteFile)
     {
-		Common.LOG_FILE = context.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS) + "/LittleFox/Log/" + fileName;
+		Common.LOG_FILE = context.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS) + File.separator + fileName;
     	
     	if(deleteFile)
     	{
