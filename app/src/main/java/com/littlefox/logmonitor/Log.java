@@ -50,13 +50,13 @@ public final class Log {
 		}
 		Common.LOG_FILE = Common.PATH_ROOT + File.separator + fileName;
 
-    	try
-		{
-			if(deleteFile)
-			{
-				File rootFolder = new File(Common.PATH_ROOT);
-				File[] files = rootFolder.listFiles();
+    	if(deleteFile)
+    	{
+    		File rootFolder = new File(Common.PATH_ROOT);
+    		File[] files = rootFolder.listFiles();
 
+    		if(files != null)
+			{
 				for(File childFile : files)
 				{
 					if(childFile.getName().equals(fileName))
@@ -65,8 +65,7 @@ public final class Log {
 					}
 				}
 			}
-		}catch (NullPointerException e) { }
-
+    	}
     }
     
     public static void stampStart()
