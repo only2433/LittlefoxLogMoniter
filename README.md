@@ -42,7 +42,7 @@ Log.init(this, Common.LOG_FILE, MonitorMode.RELEASE_MODE);
 > 로그파일 용량이 10MB를 넘어가면 파일을 삭제 후<br>
 재 생성하여, 파일 용량을 최대 10MB를 유지 하도록 한다.
 
-### Save
+### 사용 예시 - Save
 ```Java
     private void checkAnswerMode()
     {
@@ -78,7 +78,7 @@ Log.init(this, Common.LOG_FILE, MonitorMode.RELEASE_MODE);
 몇몇 고객이 1번 문제를 풀때, 정답이 A인데, B를 선택 했는데 를 선택했다고 우기면서 컴플레인 할때 가 있어<br>
 정확하게 알려주기 위해 사용하는 코드 이다.
 
-### 파일 로그 내용
+### 사용 예시 - 파일 로그 내용
 ```
 0419 14:46:19	ReadingSequenceQuizFragment(checkAnswerMode:314)	<I>ANSWER position : 0, answer sequence: 2, text : Mr. Freaky screamed and darted behind a stage curtain.
 0419 14:46:19	ReadingSequenceQuizFragment(checkAnswerMode:314)	<I>ANSWER position : 1, answer sequence: 1, text : The pirate skeleton knocked over two buckets with his sword.
