@@ -10,7 +10,11 @@
 
 감사합니다!
 
-* ExceptionCheckHandler - Exception 발생하여, 앱이 비정상 종료 될 때, 파일에 기록합니다.
-* Log - 로그를 파일로 기록합니다.
+# Getting Started
+안드로이드 스튜디오나 gradle을 사용하시는 분께서는<br>
+아래 dependencies를 build.gradle에 추가해주시면 바로 사용해보실수 있습니다.
+```groovy
+implementation 'com.github.only2433:LittlefoxLogMoniter:1.0.14'
+```
 
 
